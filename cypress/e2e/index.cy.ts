@@ -6,12 +6,12 @@
 describe('Index', () => {
   it('should render welcome message', () => {
     // Start from the index page
-    cy.visit('/')
+    cy.visit('/');
 
     // The page should contain an h4 with start instructions
-    cy.get('h4').contains('Get started by editing pages/index.tsx')
-  })
-})
+    cy.get('h4').contains('Get started by editing pages/index.tsx');
+  });
+});
 
 // tslint: isolated modules
-export { }
+export {};

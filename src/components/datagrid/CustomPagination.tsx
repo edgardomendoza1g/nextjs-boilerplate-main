@@ -1,15 +1,32 @@
-"use client";
-import MuiPagination from "@mui/material/Pagination";
+'use client';
+import MuiPagination from '@mui/material/Pagination';
 import {
-  useGridSelector,
-  useGridApiContext,
-  gridPageCountSelector,
   GridPagination,
-} from "@mui/x-data-grid";
+  gridPageCountSelector,
+  useGridApiContext,
+  useGridSelector,
+} from '@mui/x-data-grid';
 
-const Pagination = ({ page, onPageChange, className }: any) => {
+interface PaginationProps {
+  page: number;
+  onPageChange: (
+    event: React.MouseEvent<HTMLButtonElement> | null,
+    newPage: number
+  ) => void;
+  className?: string;
+}
+
+const Pagination = ({ page, onPageChange, className }: PaginationProps) => {
   const apiRef = useGridApiContext();
   const pageCount = useGridSelector(apiRef, gridPageCountSelector);
+
+  const handlePageChange = (
+    event: React.ChangeEvent<unknown>,
+    newPage: number
+  ) => {
+    // Convert to a MouseEvent or ignore the event type
+    onPageChange(null, newPage - 1);
+  };
 
   return (
     <MuiPagination
@@ -17,9 +34,7 @@ const Pagination = ({ page, onPageChange, className }: any) => {
       className={className}
       count={pageCount}
       page={page + 1}
-      onChange={(event, newPage) => {
-        onPageChange(event, newPage - 1);
-      }}
+      onChange={handlePageChange}
     />
   );
 };

@@ -1,4 +1,4 @@
-import { useMsal } from "@azure/msal-react";
+import { useMsal } from '@azure/msal-react';
 import {
   Avatar,
   Box,
@@ -8,10 +8,15 @@ import {
   Popover,
   Stack,
   Typography,
-} from "@mui/material";
-import { alpha } from "@mui/material/styles";
-import { loginRequest } from "azure-active-directory-b2c/config/authConfig";
-import { MouseEvent, useState } from "react";
+} from '@mui/material';
+import { alpha } from '@mui/material/styles';
+import { callMsGraph } from 'adapters/graphApi/callMsGraph';
+import {
+  graphConfig,
+  loginRequest,
+} from 'azure-active-directory-b2c/config/authConfig';
+import { GraphResponse } from 'domain/interfaces/GraphResponse';
+import { MouseEvent, useState } from 'react';
 
 // Define the types for your state
 type GraphData = {
@@ -22,16 +27,16 @@ type GraphData = {
 
 const MENU_OPTIONS = [
   {
-    label: "Inicio",
-    icon: "eva:home-fill",
+    label: 'Inicio',
+    icon: 'eva:home-fill',
   },
   {
-    label: "Perfil",
-    icon: "eva:person-fill",
+    label: 'Perfil',
+    icon: 'eva:person-fill',
   },
   {
-    label: "Ajustes",
-    icon: "eva:settings-2-fill",
+    label: 'Ajustes',
+    icon: 'eva:settings-2-fill',
   },
 ];
 
@@ -49,8 +54,9 @@ const AccountPopover: React.FC = () => {
         account: accounts[0],
       })
       .then((response) => {
-        callMsGraph(response.accessToken, graphConfig.me).then((response) => setGraphData(response));
-        callMsGraph(response.accessToken, graphConfig.mePhotoEndpoint).then((response) => setPhoto(response));
+        callMsGraph(response.accessToken, graphConfig.me).then(
+          (response: GraphResponse) => setGraphData(response)
+        );
       });
   };
 
@@ -61,11 +67,11 @@ const AccountPopover: React.FC = () => {
   const handleLogOut = () => {
     instance
       .logoutRedirect({
-       postLogoutRedirectUri:'/',
+        postLogoutRedirectUri: '/',
       })
       .catch((e) => {
-      console.log(e)
-    })
+        console.log(e);
+      });
   };
 
   return (
@@ -75,13 +81,13 @@ const AccountPopover: React.FC = () => {
         sx={{
           p: 0,
           ...(open && {
-            "&:before": {
+            '&:before': {
               zIndex: 1,
-              content: "''",
-              width: "100%",
-              height: "100%",
-              borderRadius: "50%",
-              position: "absolute",
+              content: '',
+              width: '100%',
+              height: '100%',
+              borderRadius: '50%',
+              position: 'absolute',
               bgcolor: (theme) => alpha(theme.palette.grey[900], 0.8),
             },
           }),
@@ -94,16 +100,16 @@ const AccountPopover: React.FC = () => {
         open={Boolean(open)}
         anchorEl={open}
         onClose={handleClosePopOverMenu}
-        anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
-        transformOrigin={{ vertical: "top", horizontal: "right" }}
+        anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
+        transformOrigin={{ vertical: 'top', horizontal: 'right' }}
         PaperProps={{
           sx: {
             p: 0,
             mt: 1.5,
             ml: 0.75,
             width: 230,
-            "& .MuiMenuItem-root": {
-              typography: "body2",
+            '& .MuiMenuItem-root': {
+              typography: 'body2',
               borderRadius: 0.75,
             },
           },
@@ -113,15 +119,15 @@ const AccountPopover: React.FC = () => {
           <Typography variant="subtitle2" noWrap>
             {graphData?.displayName}
           </Typography>
-          <Typography variant="body2" sx={{ color: "text.secondary" }} noWrap>
+          <Typography variant="body2" sx={{ color: 'text.secondary' }} noWrap>
             {graphData?.mail}
           </Typography>
-          <Typography variant="body2" sx={{ color: "text.secondary" }} noWrap>
+          <Typography variant="body2" sx={{ color: 'text.secondary' }} noWrap>
             {graphData?.jobTitle}
           </Typography>
         </Box>
 
-        <Divider sx={{ borderStyle: "dashed" }} />
+        <Divider sx={{ borderStyle: 'dashed' }} />
 
         <Stack sx={{ p: 1 }}>
           {MENU_OPTIONS.map((option) => (
@@ -129,7 +135,7 @@ const AccountPopover: React.FC = () => {
           ))}
         </Stack>
 
-        <Divider sx={{ borderStyle: "dashed" }} />
+        <Divider sx={{ borderStyle: 'dashed' }} />
 
         <MenuItem onClick={handleLogOut} sx={{ m: 1 }}>
           Cerrar sesión

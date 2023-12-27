@@ -25,4 +25,4 @@
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 
 // tslint: isolated modules
-export { }
+export {};

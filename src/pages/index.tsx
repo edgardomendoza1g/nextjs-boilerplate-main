@@ -16,7 +16,7 @@ const StyledBox = styled(Box)({
   justifyContent: 'center',
   alignItems: 'center',
   backgroundColor: '#f3f3f3',
-  background: 'url(/assets/images/backgroundLogin.jpeg)',
+  background: 'url(/assets/images/backgroundLogin.jpeg)'
 });
 
 const LoginCard = styled(Box)({
@@ -30,7 +30,7 @@ const LoginCard = styled(Box)({
   borderColor: 'red',
   justifyContent: 'center',
   alignItems: 'center',
-  alignContent: 'center',
+  alignContent: 'center'
 });
 
 const Login = () => {
@@ -48,15 +48,13 @@ const Login = () => {
     instance
       .loginPopup({
         ...loginRequest,
-        redirectUri: '/datagrid-with-filter/blog',
+        redirectUri: '/datagrid-with-filter/blog'
       })
-      .catch((error) => console.log(error));
+      .catch(error => console.log(error));
   };
 
   return (
     <>
-     
-
       <StyledBox>
         <Box
           sx={{
@@ -72,7 +70,7 @@ const Login = () => {
             alignItems: 'center',
             alignContent: 'center',
             display: 'flex',
-            flexDirection: isMobile ? 'column' : 'row',
+            flexDirection: isMobile ? 'column' : 'row'
           }}
         >
           <div
@@ -86,7 +84,7 @@ const Login = () => {
               borderBottomLeftRadius: isMobile ? '0px' : '18px',
               borderTopRightRadius: isMobile ? '18px' : '0px',
               objectFit: 'cover',
-              alignSelf: 'center',
+              alignSelf: 'center'
             }}
           />
           <Box
@@ -100,7 +98,7 @@ const Login = () => {
               alignContent: 'center',
               borderColor: 'red',
               borderStyle: 'solid',
-              borderWidth: 0,
+              borderWidth: 0
             }}
           >
             <Box
@@ -114,7 +112,7 @@ const Login = () => {
                 alignContent: 'center',
                 alignItems: 'center',
                 borderStyle: 'solid',
-                borderWidth: 0,
+                borderWidth: 0
               }}
             >
               <div
@@ -125,7 +123,7 @@ const Login = () => {
                   margin: 0,
                   padding: 0,
                   borderStyle: 'solid',
-                  borderWidth: 0,
+                  borderWidth: 0
                 }}
               />
             </Box>
@@ -143,7 +141,7 @@ const Login = () => {
                 margin: 0,
                 padding: 0,
                 borderStyle: 'solid',
-                borderWidth: 0,
+                borderWidth: 0
               }}
             >
               <Typography variant="h4" gutterBottom textAlign={'center'}>
@@ -152,9 +150,16 @@ const Login = () => {
               <Typography variant="body2" gutterBottom textAlign={'center'}>
                 A continuacion presiona el boton para iniciar sesion con Microsoft Outlook
               </Typography>
-          
-              <Button variant="contained" color="primary" size="large"  fullWidth onClick={handleLoginPopup} endIcon={ <Iconify icon="fa-brands:windows" />}>
-                Iniciar Sesión   
+
+              <Button
+                variant="contained"
+                color="primary"
+                size="large"
+                fullWidth
+                onClick={handleLoginPopup}
+                endIcon={<Iconify icon="fa-brands:windows" />}
+              >
+                Iniciar Sesión
               </Button>
 
               <Box
@@ -165,7 +170,7 @@ const Login = () => {
                   justifyContent: 'space-evenly',
                   alignContent: 'space-around',
                   alignItems: 'center',
-                  borderColor: 'green',
+                  borderColor: 'green'
                 }}
               >
                 <Typography variant="body1" mb={1} textAlign={'center'}>

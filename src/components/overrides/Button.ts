@@ -1,13 +1,13 @@
-import { alpha, Theme } from "@mui/material/styles";
+import { Theme, alpha } from '@mui/material/styles';
 
 // Define el tipo de 'theme' como 'Theme' de Material UI
-export default function Button(theme: any) {
+export default function Button(theme: Theme) {
   return {
     MuiButton: {
       styleOverrides: {
         root: {
-          "&:hover": {
-            boxShadow: "none",
+          '&:hover': {
+            boxShadow: 'none',
           },
         },
         sizeLarge: {
@@ -15,25 +15,25 @@ export default function Button(theme: any) {
         },
         containedInherit: {
           color: theme.palette.grey[800],
-          boxShadow: theme.customShadows.z8,
-          "&:hover": {
+          boxShadow: theme.shadows[8],
+          '&:hover': {
             backgroundColor: theme.palette.grey[400],
           },
         },
         containedPrimary: {
-          boxShadow: theme.customShadows.primary,
+          boxShadow: theme.shadows[0],
         },
         containedSecondary: {
-          boxShadow: theme.customShadows.secondary,
+          boxShadow: theme.shadows[1],
         },
         outlinedInherit: {
           border: `1px solid ${alpha(theme.palette.grey[500], 0.32)}`,
-          "&:hover": {
+          '&:hover': {
             backgroundColor: theme.palette.action.hover,
           },
         },
         textInherit: {
-          "&:hover": {
+          '&:hover': {
             backgroundColor: theme.palette.action.hover,
           },
         },

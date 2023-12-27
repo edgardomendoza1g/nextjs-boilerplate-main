@@ -1,5 +1,5 @@
-import { set, sub } from "date-fns";
-import React, { useState } from "react";
+import { set, sub } from 'date-fns';
+import React, { useState } from 'react';
 // @mui
 import {
   Avatar,
@@ -16,56 +16,56 @@ import {
   Popover,
   Tooltip,
   Typography,
-} from "@mui/material";
+} from '@mui/material';
 // utils
-import { fToNow } from "utils/formatTime";
-import Iconify from "../iconify/Iconify";
-import Scrollbar from "../scrollbar/Scrollbar";
+import { fToNow } from 'utils/formatTime';
+import Iconify from '../iconify/Iconify';
+import Scrollbar from '../scrollbar/Scrollbar';
 // ----------------------------------------------------------------------
 
 const NOTIFICATIONS = [
   {
-    id: "27362g",
-    title: "Orden recibida",
-    description: "esperando el envio",
+    id: '27362g',
+    title: 'Orden recibida',
+    description: 'esperando el envio',
     avatar: null,
-    type: "order_placed",
+    type: 'order_placed',
     createdAt: set(new Date(), { hours: 10, minutes: 30 }),
     isUnRead: true,
   },
   {
-    id: "23328j3h",
-    title: "david",
-    description: "respondio a tu comentario",
-    avatar: "/assets/images/avatars/avatar_2.jpg",
-    type: "friend_interactive",
+    id: '23328j3h',
+    title: 'david',
+    description: 'respondio a tu comentario',
+    avatar: '/assets/images/avatars/avatar_2.jpg',
+    type: 'friend_interactive',
     createdAt: sub(new Date(), { hours: 3, minutes: 30 }),
     isUnRead: true,
   },
   {
-    id: " faker.datatype.uuid()",
-    title: "Tienes mensajes nuevos",
-    description: "5 mensajes sin leer",
+    id: ' faker.datatype.uuid()',
+    title: 'Tienes mensajes nuevos',
+    description: '5 mensajes sin leer',
     avatar: null,
-    type: "chat_message",
+    type: 'chat_message',
     createdAt: sub(new Date(), { days: 1, hours: 3, minutes: 30 }),
     isUnRead: false,
   },
   {
-    id: "faker.datatype.uuid()",
-    title: "Tienes un nuevo correo",
-    description: "enviado por Jaime",
+    id: 'faker.datatype.uuid()',
+    title: 'Tienes un nuevo correo',
+    description: 'enviado por Jaime',
     avatar: null,
-    type: "mail",
+    type: 'mail',
     createdAt: sub(new Date(), { days: 2, hours: 3, minutes: 30 }),
     isUnRead: false,
   },
   {
-    id: " faker.datatype.uuid(),",
-    title: "Procesando pedido",
-    description: "Tu orden esta siendo entregada",
+    id: ' faker.datatype.uuid(),',
+    title: 'Procesando pedido',
+    description: 'Tu orden esta siendo entregada',
     avatar: null,
-    type: "order_shipped",
+    type: 'order_shipped',
     createdAt: sub(new Date(), { days: 3, hours: 3, minutes: 30 }),
     isUnRead: false,
   },
@@ -101,7 +101,7 @@ export default function NotificationsPopover() {
   return (
     <>
       <IconButton
-        color={open ? "primary" : "default"}
+        color={open ? 'primary' : 'default'}
         onClick={handleOpen}
         sx={{ width: 40, height: 40 }}
       >
@@ -114,8 +114,8 @@ export default function NotificationsPopover() {
         open={Boolean(open)}
         anchorEl={open}
         onClose={handleClose}
-        anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
-        transformOrigin={{ vertical: "top", horizontal: "right" }}
+        anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
+        transformOrigin={{ vertical: 'top', horizontal: 'right' }}
         PaperProps={{
           sx: {
             mt: 1.5,
@@ -124,10 +124,10 @@ export default function NotificationsPopover() {
           },
         }}
       >
-        <Box sx={{ display: "flex", alignItems: "center", py: 2, px: 2.5 }}>
+        <Box sx={{ display: 'flex', alignItems: 'center', py: 2, px: 2.5 }}>
           <Box sx={{ flexGrow: 1 }}>
             <Typography variant="subtitle1">Notificaciones</Typography>
-            <Typography variant="body2" sx={{ color: "text.secondary" }}>
+            <Typography variant="body2" sx={{ color: 'text.secondary' }}>
               Tienes {totalUnRead} mensajes sin leer
             </Typography>
           </Box>
@@ -141,13 +141,13 @@ export default function NotificationsPopover() {
           )}
         </Box>
 
-        <Divider sx={{ borderStyle: "dashed" }} />
+        <Divider sx={{ borderStyle: 'dashed' }} />
 
         <Box
           sx={{
             height: {
               xs: 340, // Altura para dispositivos extra pequeños
-              sm: "auto", // Altura para dispositivos pequeños y mayores
+              sm: 'auto', // Altura para dispositivos pequeños y mayores
             },
           }}
         >
@@ -157,7 +157,7 @@ export default function NotificationsPopover() {
               subheader={
                 <ListSubheader
                   disableSticky
-                  sx={{ py: 1, px: 2.5, typography: "overline" }}
+                  sx={{ py: 1, px: 2.5, typography: 'overline' }}
                 >
                   Nuevo
                 </ListSubheader>
@@ -176,7 +176,7 @@ export default function NotificationsPopover() {
               subheader={
                 <ListSubheader
                   disableSticky
-                  sx={{ py: 1, px: 2.5, typography: "overline" }}
+                  sx={{ py: 1, px: 2.5, typography: 'overline' }}
                 >
                   Antiguos
                 </ListSubheader>
@@ -192,7 +192,7 @@ export default function NotificationsPopover() {
           </Scrollbar>
         </Box>
 
-        <Divider sx={{ borderStyle: "dashed", borderWidth: 4 }} />
+        <Divider sx={{ borderStyle: 'dashed', borderWidth: 4 }} />
 
         <Box sx={{ p: 1 }}>
           <Button fullWidth disableRipple>
@@ -213,7 +213,7 @@ interface Notification {
   title: string;
   description: string;
   type: string;
-  avatar: any;
+  avatar: string | null;
 }
 
 function NotificationItem({ notification }: { notification: Notification }) {
@@ -224,14 +224,14 @@ function NotificationItem({ notification }: { notification: Notification }) {
       sx={{
         py: 1.5,
         px: 2.5,
-        mt: "1px",
+        mt: '1px',
         ...(notification.isUnRead && {
-          bgcolor: "action.selected",
+          bgcolor: 'action.selected',
         }),
       }}
     >
       <ListItemAvatar>
-        <Avatar sx={{ bgcolor: "background.neutral" }}>{avatar}</Avatar>
+        <Avatar sx={{ bgcolor: 'background.neutral' }}>{avatar}</Avatar>
       </ListItemAvatar>
       <ListItemText
         primary={title}
@@ -240,9 +240,9 @@ function NotificationItem({ notification }: { notification: Notification }) {
             variant="caption"
             sx={{
               mt: 0.5,
-              display: "flex",
-              alignItems: "center",
-              color: "text.disabled",
+              display: 'flex',
+              alignItems: 'center',
+              color: 'text.disabled',
             }}
           >
             <Iconify
@@ -266,14 +266,14 @@ function renderContent(notification: Notification) {
       <Typography
         component="span"
         variant="body2"
-        sx={{ color: "text.secondary" }}
+        sx={{ color: 'text.secondary' }}
       >
         &nbsp; {notification.description}
       </Typography>
     </Typography>
   );
 
-  if (notification.type === "order_placed") {
+  if (notification.type === 'order_placed') {
     return {
       avatar: (
         <img
@@ -284,7 +284,7 @@ function renderContent(notification: Notification) {
       title,
     };
   }
-  if (notification.type === "order_shipped") {
+  if (notification.type === 'order_shipped') {
     return {
       avatar: (
         <img
@@ -295,7 +295,7 @@ function renderContent(notification: Notification) {
       title,
     };
   }
-  if (notification.type === "mail") {
+  if (notification.type === 'mail') {
     return {
       avatar: (
         <img
@@ -306,7 +306,7 @@ function renderContent(notification: Notification) {
       title,
     };
   }
-  if (notification.type === "chat_message") {
+  if (notification.type === 'chat_message') {
     return {
       avatar: (
         <img

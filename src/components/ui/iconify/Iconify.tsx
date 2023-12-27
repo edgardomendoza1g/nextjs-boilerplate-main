@@ -1,15 +1,15 @@
-import React, { forwardRef, CSSProperties } from "react";
+import { CSSProperties, forwardRef } from 'react';
 // icons
-import { Icon, IconifyIcon } from "@iconify/react";
+import { Icon, IconifyIcon } from '@iconify/react';
 // @mui
-import { Box } from "@mui/material";
+import { Box } from '@mui/material';
 
 // ----------------------------------------------------------------------
 interface IconifyProps {
   icon: string | IconifyIcon;
   width?: number | string;
   sx?: CSSProperties;
-  [key: string]: any;
+  [key: string]: unknown;
 }
 
 const Iconify = forwardRef<HTMLDivElement, IconifyProps>(
@@ -23,5 +23,7 @@ const Iconify = forwardRef<HTMLDivElement, IconifyProps>(
     />
   )
 );
+
+Iconify.displayName = 'Iconify'; // Manually setting the displayName
 
 export default Iconify;

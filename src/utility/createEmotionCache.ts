@@ -1,8 +1,8 @@
-import createCache from '@emotion/cache'
-import type { EmotionCache } from '@emotion/utils'
+import createCache from '@emotion/cache';
+import type { EmotionCache } from '@emotion/utils';
 
 const createEmotionCache: () => EmotionCache = (): EmotionCache => {
-  return createCache({ key: 'mui' })
-}
+  return createCache({ key: 'mui' });
+};
 
-export default createEmotionCache
+export default createEmotionCache;

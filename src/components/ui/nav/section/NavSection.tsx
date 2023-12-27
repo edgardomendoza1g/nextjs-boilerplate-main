@@ -1,11 +1,11 @@
-"use client";
+'use client';
 
-import { useState } from "react";
+import { useState } from 'react';
 
 import {
   ChevronRight as ChevronRightIcon,
   ExpandMore as ExpandMoreIcon,
-} from "@mui/icons-material";
+} from '@mui/icons-material';
 import {
   Box,
   Collapse,
@@ -14,9 +14,9 @@ import {
   ListItemIcon,
   Stack,
   useTheme,
-} from "@mui/material";
-import { useRouter } from "next/router";
-import { StyledNavItem, StyledNavItemIcon, StyledNavText } from "./styles";
+} from '@mui/material';
+import { useRouter } from 'next/router';
+import { StyledNavItem, StyledNavItemIcon, StyledNavText } from './styles';
 
 interface NavItemsProps {
   title: string;
@@ -29,11 +29,11 @@ interface NavSectionProps {
   data: NavItemsProps[];
 }
 
-const NavSection: React.FC<any> = ({ data = [], ...other }) => {
+const NavSection: React.FC<NavSectionProps> = ({ data = [], ...other }) => {
   return (
     <Box {...other}>
       <List disablePadding sx={{ p: 0 }}>
-        {data.map((item: any) => (
+        {data.map((item: NavItemsProps) => (
           <NavItem key={item.title} {...item} />
         ))}
       </List>
@@ -46,9 +46,10 @@ const NavItem: React.FC<NavItemsProps> = ({ title, path, icon, children }) => {
   const handleClickSubMenu = () => {
     if (hasChildren) {
       setOpenSubMenu(!openSubMenu);
-    } else {
+    } else if (path) {
       router.push(path);
-    }  };
+    }
+  };
 
   const renderSubmenu = () => {
     if (children) {
@@ -67,8 +68,9 @@ const NavItem: React.FC<NavItemsProps> = ({ title, path, icon, children }) => {
 
   const hasChildren = children && children.length > 0;
   const router = useRouter();
-  
-  const isActive = router.pathname === path;  const theme = useTheme();
+
+  const isActive = router.pathname === path;
+  const theme = useTheme();
   const actualWidth = 170;
 
   return (
@@ -79,24 +81,24 @@ const NavItem: React.FC<NavItemsProps> = ({ title, path, icon, children }) => {
           padding: 0,
           marginBottom: 1,
           marginX: 2,
-          borderTopLeftRadius: "5px",
-          borderTopRightRadius: "5px",
-          borderBottomRightRadius: "5px",
-          borderBottomLeftRadius: "5px",
+          borderTopLeftRadius: '5px',
+          borderTopRightRadius: '5px',
+          borderBottomRightRadius: '5px',
+          borderBottomLeftRadius: '5px',
         }}
         onClick={handleClickSubMenu}
       >
         <StyledNavItem
           sx={{
-            fontWeight: "fontWeightBold",
+            fontWeight: 'fontWeightBold',
             backgroundColor:
-              isActive && !hasChildren ? "action.selected" : theme.shadows[5],
-            borderTopLeftRadius: "5px",
-            borderTopRightRadius: "5px",
-            borderBottomRightRadius: "5px",
-            borderBottomLeftRadius: "5px",
-            borderStyle: "solid",
-            borderColor: "red",
+              isActive && !hasChildren ? 'action.selected' : theme.shadows[5],
+            borderTopLeftRadius: '5px',
+            borderTopRightRadius: '5px',
+            borderBottomRightRadius: '5px',
+            borderBottomLeftRadius: '5px',
+            borderStyle: 'solid',
+            borderColor: 'red',
             borderWidth: 0,
           }}
         >
@@ -104,31 +106,31 @@ const NavItem: React.FC<NavItemsProps> = ({ title, path, icon, children }) => {
             <StyledNavItemIcon
               sx={{
                 borderWidth: 0,
-                borderStyle: "solid",
-                justifyContent: "center",
+                borderStyle: 'solid',
+                justifyContent: 'center',
               }}
             >
               {icon && icon}
             </StyledNavItemIcon>
             <Box
               sx={{
-                display: "flex",
-                flexDirection: "column",
+                display: 'flex',
+                flexDirection: 'column',
                 height: 48,
                 width: hasChildren ? `${actualWidth}-2px` : actualWidth,
-                justifyContent: "center",
-                alignContent: "center",
+                justifyContent: 'center',
+                alignContent: 'center',
                 margin: 0,
                 padding: 0,
                 borderWidth: 0,
-                borderStyle: "solid",
+                borderStyle: 'solid',
               }}
             >
               <StyledNavText>{title}</StyledNavText>
             </Box>
           </Stack>
           {hasChildren && (
-            <ListItemIcon sx={{ borderWidth: 0, borderStyle: "solid" }}>
+            <ListItemIcon sx={{ borderWidth: 0, borderStyle: 'solid' }}>
               {openSubMenu ? <ExpandMoreIcon /> : <ChevronRightIcon />}
             </ListItemIcon>
           )}

@@ -1,5 +1,5 @@
-"use client";
-import { Breadcrumbs, Link, Typography } from "@mui/material";
+'use client';
+import { Breadcrumbs, Link, Typography } from '@mui/material';
 
 export const CustomBreadcrumbs = () => {
   return (
@@ -7,24 +7,23 @@ export const CustomBreadcrumbs = () => {
       separator="›"
       sx={{
         marginY: 1,
-        "& a": {
-          textDecoration: "none", // Remove text decoration (underline) by default
-          position: "relative", // Create a relative positioning context
-          "&:hover": {
-            "&::after": {
+        '& a': {
+          textDecoration: 'none', // Remove text decoration (underline) by default
+          position: 'relative', // Create a relative positioning context
+          '&:hover': {
+            '&::after': {
               content: '""',
-              position: "absolute",
+              position: 'absolute',
               left: 0,
               right: 0,
               bottom: 0,
-              height: "1px", // Adjust the height of the underline
-              background: "currentColor", // Use the text color as the underline color
-            },
-          },
-        },
+              height: '1px', // Adjust the height of the underline
+              background: 'currentColor' // Use the text color as the underline color
+            }
+          }
+        }
       }}
-      aria-label="breadcrumb"
-    >
+      aria-label="breadcrumb">
       <Link color="inherit" href="/dashboard">
         DataGrid con Filtros
       </Link>

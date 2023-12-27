@@ -1,37 +1,14 @@
-import { Shadows, alpha } from "@mui/material/styles";
-import { PaletteColorOptions } from "@mui/material/styles";
+import { Shadows, alpha } from '@mui/material/styles';
 // Asumiendo que el archivo './palette' exporta un objeto 'palette' de tipo 'Palette'
-import { palette } from "./palette";
+import { grey } from './palette';
 
-const color = palette.grey?.[500] ?? "#BDBDBD"; // Proporcionar un valor por defecto para grey[500]
-
-function getColorMain(
-  colorOption: PaletteColorOptions | undefined,
-  defaultValue: string
-): string {
-  if (
-    typeof colorOption === "object" &&
-    colorOption !== null &&
-    "main" in colorOption
-  ) {
-    return colorOption.main ?? defaultValue;
-  }
-  return defaultValue;
-}
+const color = grey[500] ?? '#BDBDBD'; // Proporcionar un valor por defecto para grey[500]
 
 export default function customShadows(): Shadows {
   const transparent = alpha(color, 0.16);
 
-  // Usando la función actualizada
-  const primary = getColorMain(palette.primary, "#1976D2");
-  const info = getColorMain(palette.info, "#2196F3");
-  const secondary = getColorMain(palette.secondary, "#9C27B0");
-  const success = getColorMain(palette.success, "#4CAF50");
-  const warning = getColorMain(palette.warning, "#FFC107");
-  const error = getColorMain(palette.error, "#F44336");
-
   return [
-    "none", // z1
+    'none', // z1
     `0 1px 2px 0 ${transparent}`, // z1
     `0 2px 4px 0 ${transparent}`, // z2
     `0 3px 6px 0 ${transparent}`, // z3

@@ -1,8 +1,7 @@
-import { useMsal } from "@azure/msal-react";
+import { useMsal } from '@azure/msal-react';
 
-export const useIsAuthenticated = ():boolean => {
-    const { accounts } = useMsal();
+export const useIsAuthenticated = (): boolean => {
+  const { accounts } = useMsal();
 
-    return accounts.length > 0;
-
-}
+  return accounts.length > 0;
+};

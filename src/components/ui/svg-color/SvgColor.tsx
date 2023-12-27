@@ -1,5 +1,5 @@
-import { forwardRef } from "react";
-import { Box, SxProps, Theme } from "@mui/material";
+import { Box, SxProps, Theme } from '@mui/material';
+import { forwardRef } from 'react';
 
 interface SvgColorProps {
   src: string;
@@ -14,8 +14,8 @@ const SvgColor = forwardRef<HTMLSpanElement, SvgColorProps>(
       sx={{
         width: 24,
         height: 24,
-        display: "inline-block",
-        bgcolor: "currentColor",
+        display: 'inline-block',
+        bgcolor: 'currentColor',
         mask: `url(${src}) no-repeat center / contain`,
         WebkitMask: `url(${src}) no-repeat center / contain`,
         ...sx,
@@ -24,5 +24,7 @@ const SvgColor = forwardRef<HTMLSpanElement, SvgColorProps>(
     />
   )
 );
+
+SvgColor.displayName = 'SvgColor';
 
 export default SvgColor;

@@ -1,14 +1,13 @@
-import { CSSProperties, forwardRef } from "react";
+import { CSSProperties, forwardRef } from 'react';
 // @mui
-import Link from "next/link";
-import { useTheme } from "@mui/material/styles";
-import { Box } from "@mui/material";
+import { Box } from '@mui/material';
+import { useTheme } from '@mui/material/styles';
+import Link from 'next/link';
 
 // ----------------------------------------------------------------------
-interface LogoProps {
+interface LogoProps extends React.HTMLAttributes<HTMLDivElement> {
   disabledLink?: boolean;
   sx?: CSSProperties;
-  [key: string]: any;
 }
 
 const Logo = forwardRef<HTMLDivElement, LogoProps>(
@@ -41,16 +40,16 @@ const Logo = forwardRef<HTMLDivElement, LogoProps>(
         ref={ref}
         component="div"
         sx={{
-          width: "100%",
+          width: '100%',
           height: 64,
-          display: "inline-flex",
-          borderColor: "default",
+          display: 'inline-flex',
+          borderColor: 'default',
           borderWidth: 0,
           borderBottomWidth: 0,
-          justifyContent: "center",
-          alignContent: "center",
-          alignItems: "center",
-          borderStyle: "solid",
+          justifyContent: 'center',
+          alignContent: 'center',
+          alignItems: 'center',
+          borderStyle: 'solid',
           borderRadius: 0,
           margin: 0,
           padding: 0,
@@ -67,10 +66,12 @@ const Logo = forwardRef<HTMLDivElement, LogoProps>(
 
     return (
       <Link href="/" passHref legacyBehavior>
-        <a style={{ display: "contents" }}>{logo}</a>
+        <a style={{ display: 'contents' }}>{logo}</a>
       </Link>
     );
   }
 );
+
+Logo.displayName = 'Logo';
 
 export default Logo;
