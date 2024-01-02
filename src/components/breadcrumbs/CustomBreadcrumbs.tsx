@@ -18,12 +18,13 @@ export const CustomBreadcrumbs = () => {
               right: 0,
               bottom: 0,
               height: '1px', // Adjust the height of the underline
-              background: 'currentColor' // Use the text color as the underline color
-            }
-          }
-        }
+              background: 'currentColor', // Use the text color as the underline color
+            },
+          },
+        },
       }}
-      aria-label="breadcrumb">
+      aria-label="breadcrumb"
+    >
       <Link color="inherit" href="/dashboard">
         DataGrid con Filtros
       </Link>

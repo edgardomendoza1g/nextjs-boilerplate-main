@@ -2,7 +2,14 @@ import { useMsal } from '@azure/msal-react';
 // @mui
 import LockOpenIcon from '@mui/icons-material/LockOpen';
 import VpnKeyIcon from '@mui/icons-material/VpnKey';
-import { Box, Button, IconButton, Typography, useMediaQuery, useTheme } from '@mui/material';
+import {
+  Box,
+  Button,
+  IconButton,
+  Typography,
+  useMediaQuery,
+  useTheme,
+} from '@mui/material';
 import { styled } from '@mui/material/styles';
 // authConfig
 import { loginRequest } from 'azure-active-directory-b2c/config/authConfig'; // hooks
@@ -16,7 +23,7 @@ const StyledBox = styled(Box)({
   justifyContent: 'center',
   alignItems: 'center',
   backgroundColor: '#f3f3f3',
-  background: 'url(/assets/images/backgroundLogin.jpeg)'
+  background: 'url(/assets/images/backgroundLogin.jpeg)',
 });
 
 const LoginCard = styled(Box)({
@@ -30,7 +37,7 @@ const LoginCard = styled(Box)({
   borderColor: 'red',
   justifyContent: 'center',
   alignItems: 'center',
-  alignContent: 'center'
+  alignContent: 'center',
 });
 
 const Login = () => {
@@ -48,9 +55,9 @@ const Login = () => {
     instance
       .loginPopup({
         ...loginRequest,
-        redirectUri: '/datagrid-with-filter/blog'
+        redirectUri: '/datagrid-with-filter/blog',
       })
-      .catch(error => console.log(error));
+      .catch((error) => console.log(error));
   };
 
   return (
@@ -70,12 +77,13 @@ const Login = () => {
             alignItems: 'center',
             alignContent: 'center',
             display: 'flex',
-            flexDirection: isMobile ? 'column' : 'row'
+            flexDirection: isMobile ? 'column' : 'row',
           }}
         >
           <div
             style={{
-              background: 'url(/assets/images/side-background-login.png) no-repeat center/cover',
+              background:
+                'url(/assets/images/side-background-login.png) no-repeat center/cover',
               height: isMobile ? '20%' : '100%',
               width: isMobile ? '100%' : '40%',
               margin: 0,
@@ -84,7 +92,7 @@ const Login = () => {
               borderBottomLeftRadius: isMobile ? '0px' : '18px',
               borderTopRightRadius: isMobile ? '18px' : '0px',
               objectFit: 'cover',
-              alignSelf: 'center'
+              alignSelf: 'center',
             }}
           />
           <Box
@@ -98,7 +106,7 @@ const Login = () => {
               alignContent: 'center',
               borderColor: 'red',
               borderStyle: 'solid',
-              borderWidth: 0
+              borderWidth: 0,
             }}
           >
             <Box
@@ -112,18 +120,19 @@ const Login = () => {
                 alignContent: 'center',
                 alignItems: 'center',
                 borderStyle: 'solid',
-                borderWidth: 0
+                borderWidth: 0,
               }}
             >
               <div
                 style={{
-                  background: 'url(/assets/logos/logos.svg) no-repeat center/contain',
+                  background:
+                    'url(/assets/logos/logos.svg) no-repeat center/contain',
                   width: '60%',
                   height: '60%',
                   margin: 0,
                   padding: 0,
                   borderStyle: 'solid',
-                  borderWidth: 0
+                  borderWidth: 0,
                 }}
               />
             </Box>
@@ -141,14 +150,15 @@ const Login = () => {
                 margin: 0,
                 padding: 0,
                 borderStyle: 'solid',
-                borderWidth: 0
+                borderWidth: 0,
               }}
             >
               <Typography variant="h4" gutterBottom textAlign={'center'}>
                 ¡Bienvenido a vERP Web!
               </Typography>
               <Typography variant="body2" gutterBottom textAlign={'center'}>
-                A continuacion presiona el boton para iniciar sesion con Microsoft Outlook
+                A continuacion presiona el boton para iniciar sesion con
+                Microsoft Outlook
               </Typography>
 
               <Button
@@ -170,21 +180,25 @@ const Login = () => {
                   justifyContent: 'space-evenly',
                   alignContent: 'space-around',
                   alignItems: 'center',
-                  borderColor: 'green'
+                  borderColor: 'green',
                 }}
               >
                 <Typography variant="body1" mb={1} textAlign={'center'}>
                   <IconButton color="primary" size="small">
                     <VpnKeyIcon />
                   </IconButton>
-                  <span style={{ textDecoration: 'underline' }}>Recuperar contraseña</span>
+                  <span style={{ textDecoration: 'underline' }}>
+                    Recuperar contraseña
+                  </span>
                 </Typography>
 
                 <Typography variant="body1" mb={1} textAlign={'center'}>
                   <IconButton color="primary" size="small">
                     <LockOpenIcon />
                   </IconButton>
-                  <span style={{ textDecoration: 'underline' }}>Desbloquear usuario</span>
+                  <span style={{ textDecoration: 'underline' }}>
+                    Desbloquear usuario
+                  </span>
                 </Typography>
               </Box>
             </Box>

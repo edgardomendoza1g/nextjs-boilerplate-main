@@ -8,7 +8,7 @@ export default function customShadows(): Shadows {
   const transparent = alpha(color, 0.16);
 
   return [
-    'none', // z1
+    'none', // z0
     `0 1px 2px 0 ${transparent}`, // z1
     `0 2px 4px 0 ${transparent}`, // z2
     `0 3px 6px 0 ${transparent}`, // z3

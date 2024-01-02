@@ -9,11 +9,11 @@ const APP_BAR_DESKTOP = 64;
 const StyledRoot = styled('div')({
   display: 'flex',
   minHeight: '100%',
-  overflow: 'hidden'
+  overflow: 'hidden',
 });
 
 interface MainProps {
-  theme: Theme
+  theme: Theme;
 }
 
 const Main = styled('div')(({ theme }: MainProps) => ({
@@ -31,12 +31,12 @@ const Main = styled('div')(({ theme }: MainProps) => ({
   [theme.breakpoints.up('lg')]: {
     paddingTop: APP_BAR_DESKTOP + 10,
     paddingLeft: theme.spacing(1),
-    paddingRight: theme.spacing(1)
-  }
+    paddingRight: theme.spacing(1),
+  },
 }));
 
 interface DashboardLayoutProps {
-  children?: ReactNode
+  children?: ReactNode;
 }
 
 export default function DashboardLayout({ children }: DashboardLayoutProps) {

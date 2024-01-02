@@ -6,7 +6,6 @@ services:
       context: .
       target: nextjs
       args:
-
         # @@ Environment passed to build and start, can be 'prod' or 'dev'
         #
         #     Most notably 'dev' enables hot-reloading and error reporting.

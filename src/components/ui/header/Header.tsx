@@ -13,8 +13,8 @@ const HEADER_DESKTOP = 64;
 const StyledRoot = styled(AppBar)(({ theme }) => ({
   boxShadow: 'none',
   [theme.breakpoints.up('lg')]: {
-    width: `calc(100% - ${NAV_WIDTH + 0}px)`
-  }
+    width: `calc(100% - ${NAV_WIDTH + 0}px)`,
+  },
 }));
 
 const StyledToolbar = styled(Toolbar)(() => {
@@ -23,13 +23,13 @@ const StyledToolbar = styled(Toolbar)(() => {
     height: HEADER_MOBILE,
     backgroundColor: '#f3f3f3',
     [theme.breakpoints.up('lg')]: {
-      height: HEADER_DESKTOP
-    }
+      height: HEADER_DESKTOP,
+    },
   };
 });
 
 interface HeaderProps {
-  onOpenNav: () => void
+  onOpenNav: () => void;
 }
 
 const Header: FC<HeaderProps> = ({ onOpenNav }) => {
@@ -48,8 +48,9 @@ const Header: FC<HeaderProps> = ({ onOpenNav }) => {
             borderWidth: 0,
             borderColor: 'red',
             borderStyle: 'solid',
-            display: { lg: 'none' }
-          }}>
+            display: { lg: 'none' },
+          }}
+        >
           <Iconify sx={{ width: 35, height: 35 }} icon="eva:menu-fill" />
         </IconButton>
 
@@ -60,8 +61,9 @@ const Header: FC<HeaderProps> = ({ onOpenNav }) => {
           alignItems="center"
           spacing={{
             xs: 0.5,
-            sm: 4
-          }}>
+            sm: 4,
+          }}
+        >
           <LanguagePopover />
           <NotificationsPopover />
           <AccountPopover />

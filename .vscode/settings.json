@@ -13,5 +13,7 @@
     "javascriptreact",
     "typescript",
     "typescriptreact"
-  ]
+  ],
+  "editor.tabSize": 2,
+  "editor.insertSpaces": true
 }

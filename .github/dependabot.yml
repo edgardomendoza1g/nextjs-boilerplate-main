@@ -1,23 +1,23 @@
 version: 2
 updates:
-  - package-ecosystem: "npm"
-    directory: "/"
+  - package-ecosystem: 'npm'
+    directory: '/'
     schedule:
-      interval: "daily"
-      day: "wednesday"
-      time: "08:00"
-      timezone: "America/Vancouver"
+      interval: 'daily'
+      day: 'wednesday'
+      time: '08:00'
+      timezone: 'America/Vancouver'
     labels:
-      - "dependencies"
+      - 'dependencies'
     versioning-strategy: widen
 
-  - package-ecosystem: "github-actions"
-    directory: "/"
+  - package-ecosystem: 'github-actions'
+    directory: '/'
     schedule:
-      interval: "daily"
-      day: "wednesday"
-      time: "08:00"
-      timezone: "America/Vancouver"
+      interval: 'daily'
+      day: 'wednesday'
+      time: '08:00'
+      timezone: 'America/Vancouver'
     labels:
-      - "actions"
-      - "dependencies"
+      - 'actions'
+      - 'dependencies'

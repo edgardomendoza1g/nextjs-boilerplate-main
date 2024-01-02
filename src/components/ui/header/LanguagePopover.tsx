@@ -3,27 +3,27 @@ import { Box, Button, MenuItem, Popover, Stack } from '@mui/material';
 import React, { MouseEvent, useState } from 'react';
 
 interface Lang {
-  value: string
-  label: string
-  icon: string
+  value: string;
+  label: string;
+  icon: string;
 }
 
 const LANGS = [
   {
     value: 'es',
     label: 'El Salvador',
-    icon: '/assets/icons/countries/ic_flag_sv.svg'
+    icon: '/assets/icons/countries/ic_flag_sv.svg',
   },
   {
     value: 'cr',
     label: 'Costa Rica',
-    icon: '/assets/icons/countries/ic_flag_cr.svg'
+    icon: '/assets/icons/countries/ic_flag_cr.svg',
   },
   {
     value: 'gt',
     label: 'Guatemala',
-    icon: '/assets/icons/countries/ic_flag_gt.svg'
-  }
+    icon: '/assets/icons/countries/ic_flag_gt.svg',
+  },
 ];
 
 const LanguagePopover: React.FC = () => {
@@ -47,10 +47,15 @@ const LanguagePopover: React.FC = () => {
           width: 150,
           height: 45,
           color: 'black',
-          borderColor: 'GREY'
+          borderColor: 'GREY',
         }}
-        endIcon={<ArrowDropDownRoundedIcon />}>
-        <img src={LANGS[0].icon} alt={LANGS[0].label} style={{ width: '28px', marginRight: '4px' }} />
+        endIcon={<ArrowDropDownRoundedIcon />}
+      >
+        <img
+          src={LANGS[0].icon}
+          alt={LANGS[0].label}
+          style={{ width: '28px', marginRight: '4px' }}
+        />
         {LANGS[0].label}
       </Button>
 
@@ -69,14 +74,24 @@ const LanguagePopover: React.FC = () => {
             '& .MuiMenuItem-root': {
               px: 1,
               typography: 'body2',
-              borderRadius: 0.5
-            }
-          }
-        }}>
+              borderRadius: 0.5,
+            },
+          },
+        }}
+      >
         <Stack spacing={0.75}>
-          {LANGS.map(option => (
-            <MenuItem key={option.value} selected={option.value === LANGS[0].value} onClick={() => handleClose()}>
-              <Box component="img" alt={option.label} src={option.icon} sx={{ width: 28, mr: 2 }} />
+          {LANGS.map((option) => (
+            <MenuItem
+              key={option.value}
+              selected={option.value === LANGS[0].value}
+              onClick={() => handleClose()}
+            >
+              <Box
+                component="img"
+                alt={option.label}
+                src={option.icon}
+                sx={{ width: 28, mr: 2 }}
+              />
 
               {option.label}
             </MenuItem>

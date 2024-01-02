@@ -6,13 +6,15 @@ import {
   Typography,
   ListItemButtonProps,
   ListItemIconProps,
-  TypographyProps
+  TypographyProps,
 } from '@mui/material';
 
 // ----------------------------------------------------------------------
 interface StyledNavItemProps extends ListItemButtonProps {}
 
-export const StyledNavItem = styled((props: StyledNavItemProps) => <ListItemButton {...props} />)(({ theme }) => ({
+export const StyledNavItem = styled((props: StyledNavItemProps) => (
+  <ListItemButton {...props} />
+))(({ theme }) => ({
   ...theme.typography.body2,
   display: 'flex',
   flexDirection: 'row',
@@ -25,12 +27,14 @@ export const StyledNavItem = styled((props: StyledNavItemProps) => <ListItemButt
   borderWidth: 0,
   borderStyle: 'dotted',
   margin: 0,
-  padding: 0
+  padding: 0,
 }));
 
 interface StyledNavItemIconProps extends ListItemIconProps {}
 
-export const StyledNavItemIcon = styled((props: StyledNavItemIconProps) => <ListItemIcon {...props} />)({
+export const StyledNavItemIcon = styled((props: StyledNavItemIconProps) => (
+  <ListItemIcon {...props} />
+))({
   width: 48,
   height: 48,
   padding: 11,
@@ -38,12 +42,14 @@ export const StyledNavItemIcon = styled((props: StyledNavItemIconProps) => <List
   flexDirection: 'row',
   alignItems: 'center',
   justifyContent: 'center',
-  color: 'common.white'
+  color: 'common.white',
 });
 
 interface StyledNavTextProps extends TypographyProps {}
 
-export const StyledNavText = styled((props: StyledNavTextProps) => <Typography {...props} />)(({ theme }) => ({
+export const StyledNavText = styled((props: StyledNavTextProps) => (
+  <Typography {...props} />
+))(({ theme }) => ({
   textAlign: 'left',
   justifyContent: 'center',
   alignItems: 'center',
@@ -51,5 +57,5 @@ export const StyledNavText = styled((props: StyledNavTextProps) => <Typography {
   borderStyle: 'solid',
   minWidth: '100%',
   margin: 0,
-  padding: 0
+  padding: 0,
 }));

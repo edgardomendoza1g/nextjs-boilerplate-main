@@ -1,5 +1,6 @@
 export const localeText = {
-  noRowsLabel: 'No contiene filas de datos o el conjunto de filas y columnas es muy grande y aún se está procesando',
+  noRowsLabel:
+    'No contiene filas de datos o el conjunto de filas y columnas es muy grande y aún se está procesando',
   noResultsOverlayLabel: 'Resultados no encontrados',
   toolbarDensity: 'Densidad',
   toolbarDensityLabel: 'Densidad',
@@ -44,5 +45,5 @@ export const localeText = {
   filterOperatorOnOrBefore: 'es en o anterior',
   filterOperatorIsEmpty: 'esta vacío',
   filterOperatorIsNotEmpty: 'no esta vacío',
-  filterOperatorIsAnyOf: 'es cualquiera de'
+  filterOperatorIsAnyOf: 'es cualquiera de',
 };

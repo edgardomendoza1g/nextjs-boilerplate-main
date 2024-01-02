@@ -4,16 +4,19 @@ import SvgColor from '../svg-color/SvgColor';
 
 // Define la interfaz para los elementos de la navegación
 interface NavItem {
-  title: string
-  path?: string
-  icon?: React.ReactNode
-  info?: string
-  children?: NavItem[] // Recursividad para subelementos
+  title: string;
+  path?: string;
+  icon?: React.ReactNode;
+  info?: string;
+  children?: NavItem[]; // Recursividad para subelementos
 }
 
 // Función para crear iconos
 const icon = (name: string): React.ReactNode => (
-  <SvgColor src={`/assets/icons/navbar/${name}.svg`} sx={{ width: 1, height: 1 }} />
+  <SvgColor
+    src={`/assets/icons/navbar/${name}.svg`}
+    sx={{ width: 1, height: 1 }}
+  />
 );
 
 // Configuración de la navegación
@@ -26,7 +29,7 @@ const navConfig: NavItem[] = [
       {
         title: 'Vista General',
         path: '/datagrid-with-filter/blog',
-        icon: icon('ic_check')
+        icon: icon('ic_check'),
       },
       {
         title: 'Componentes',
@@ -35,12 +38,12 @@ const navConfig: NavItem[] = [
           {
             title: 'Columnas y filas',
             path: '/datagrid-with-filter/user',
-            icon: icon('ic_punto')
+            icon: icon('ic_punto'),
           },
           {
             title: 'Custom Toolbar',
             path: '/datagrid-with-filter/products',
-            icon: icon('ic_punto')
+            icon: icon('ic_punto'),
           },
           {
             title: 'Nivel 3',
@@ -53,25 +56,25 @@ const navConfig: NavItem[] = [
                   {
                     title: 'Nivel 1',
                     path: '/datagrid-with-filter/pagination',
-                    icon: icon('ic_punto')
-                  }
-                ]
-              }
-            ]
-          }
-        ]
+                    icon: icon('ic_punto'),
+                  },
+                ],
+              },
+            ],
+          },
+        ],
       },
       {
         title: 'Ejemplos de CRUD',
         path: '/datagrid-with-filter/ejemplo-crud',
-        icon: icon('ic_check')
+        icon: icon('ic_check'),
       },
       {
         title: 'Microsoft Graph',
         path: '/datagrid-with-filter/microsoft-graph',
-        icon: icon('ic_check')
-      }
-    ]
+        icon: icon('ic_check'),
+      },
+    ],
   },
   {
     title: 'Componentes Generales',
@@ -79,44 +82,44 @@ const navConfig: NavItem[] = [
     children: [
       {
         title: 'Botón',
-        path: '/componentes-generales/boton'
+        path: '/componentes-generales/boton',
       },
       {
         title: 'Listas',
-        path: '/componentes-generales/listas'
+        path: '/componentes-generales/listas',
       },
       {
         title: 'Tags',
-        path: '/componentes-generales/tags'
+        path: '/componentes-generales/tags',
       },
       {
         title: 'Calendario',
-        path: '/componentes-generales/calendario'
+        path: '/componentes-generales/calendario',
       },
       {
         title: 'Visualización',
-        path: '/componentes-generales/visualizacion'
+        path: '/componentes-generales/visualizacion',
       },
       {
         title: 'Acciones: Edición , Imprimir , Eliminar ',
-        path: '/componentes-generales/edicion'
+        path: '/componentes-generales/edicion',
       },
 
       {
         title: 'Searchbar',
-        path: '/componentes-generales/searchbar'
+        path: '/componentes-generales/searchbar',
       },
       {
         title: 'Notificaciones',
-        path: '/componentes-generales/notificaciones'
+        path: '/componentes-generales/notificaciones',
       },
       {
         title: 'Filtros',
-        path: '/componentes-generales/filtros'
+        path: '/componentes-generales/filtros',
       },
       {
         title: 'Cuadro de texto',
-        path: '/componentes-generales/cuadro-texto'
+        path: '/componentes-generales/cuadro-texto',
       },
       /*
         {
@@ -125,19 +128,19 @@ const navConfig: NavItem[] = [
         }, */
       {
         title: 'Sección colapsable',
-        path: '/componentes-generales/colapsable'
+        path: '/componentes-generales/colapsable',
       },
       {
         title: 'On/ Off',
-        path: '/componentes-generales/onoff'
+        path: '/componentes-generales/onoff',
       },
       {
         title: 'Escanear',
-        path: '/componentes-generales/escanear'
+        path: '/componentes-generales/escanear',
       },
       {
         title: 'Acción de aprobar, rechazar,modificar',
-        path: '/componentes-generales/imprimir'
+        path: '/componentes-generales/imprimir',
       },
       /*
         {
@@ -146,42 +149,42 @@ const navConfig: NavItem[] = [
         }, */
       {
         title: 'Slider',
-        path: '/componentes-generales/slider'
+        path: '/componentes-generales/slider',
       },
       {
         title: 'Hora',
-        path: '/componentes-generales/hora'
+        path: '/componentes-generales/hora',
       },
       {
         title: 'Barra de porcentaje',
-        path: '/componentes-generales/barra_de_porcentaje'
+        path: '/componentes-generales/barra_de_porcentaje',
       },
       {
         title: 'Avisos/ Pantalla emergente',
-        path: '/componentes-generales/avisos'
-      }
-    ]
+        path: '/componentes-generales/avisos',
+      },
+    ],
   },
   {
     title: 'Login',
     path: '/login',
-    icon: icon('ic_bookmark')
+    icon: icon('ic_bookmark'),
   },
   {
     title: 'Error',
     path: '/404',
-    icon: icon('ic_bookmark')
+    icon: icon('ic_bookmark'),
   },
   {
     title: 'Typography',
     path: '/datagrid-with-filter/typos',
-    icon: icon('ic_bookmark')
+    icon: icon('ic_bookmark'),
   },
   {
     title: 'Color Palette',
     path: '/datagrid-with-filter/color',
-    icon: icon('ic_bookmark')
-  }
+    icon: icon('ic_bookmark'),
+  },
 ];
 
 export default navConfig;
