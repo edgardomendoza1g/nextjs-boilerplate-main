@@ -24,7 +24,7 @@ const TodoList = () => {
   const [fetchError, setFetchError] = useState<AuthError | null>(null);
 
   useEffect(() => {
-    if (todoListData.length === 0) {
+    if (todoListData && todoListData.length === 0) {
       execute('GET', protectedResources.apiTodoList.todoListEndpoint)
         .then((response: unknown) => {
           setTodoListData(response as TodoItem[]);
